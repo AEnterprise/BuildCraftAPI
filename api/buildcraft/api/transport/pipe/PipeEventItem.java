@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2017 SpaceToad and the BuildCraft team
+ * This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not
+ * distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/
+ */
+
 package buildcraft.api.transport.pipe;
 
 import java.util.ArrayList;
@@ -6,7 +12,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.List;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -261,7 +266,7 @@ public abstract class PipeEventItem extends PipeEvent {
 
         @Nonnull
         public ItemStack getStack() {
-            ItemStack item = entity.getEntityItem();
+            ItemStack item = entity.getItem();
             return item.isEmpty() ? ItemStack.EMPTY : item;
         }
 
@@ -269,9 +274,9 @@ public abstract class PipeEventItem extends PipeEvent {
             if (stack == null) {
                 throw new NullPointerException("stack");
             } else if (stack.isEmpty()) {
-                entity.setEntityItemStack(ItemStack.EMPTY);
+                entity.setItem(ItemStack.EMPTY);
             } else {
-                entity.setEntityItemStack(stack);
+                entity.setItem(stack);
             }
         }
 
