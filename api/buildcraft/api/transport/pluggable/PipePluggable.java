@@ -18,6 +18,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.Explosion;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import net.minecraftforge.common.capabilities.Capability;
@@ -133,7 +134,7 @@ public abstract class PipePluggable {
     }
 
     /** PipePluggable version of
-     * {@link Block#isBlockSolid(net.minecraft.world.IBlockAccess, net.minecraft.util.math.BlockPos, EnumFacing)} */
+     * {@link net.minecraft.block.state.IBlockState#isSideSolid(IBlockAccess, BlockPos, EnumFacing)}  */
     public boolean isSideSolid() {
         return false;
     }
