@@ -17,7 +17,7 @@ public final class IntegrationRecipe {
     public final ResourceLocation name;
     public final long requiredMicroJoules;
     public final StackDefinition target;
-    public final ImmutableList<StackDefinition> toIntegrate;
+    public final ImmutableList<IngredientStack> toIntegrate;
     public final @Nonnull ItemStack output;
     /**
      * Additional tag used to restore network-transmitted recipe to same state
@@ -26,7 +26,7 @@ public final class IntegrationRecipe {
      */
     public final @Nullable NBTTagCompound recipeTag;
 
-    public IntegrationRecipe(ResourceLocation name, long requiredMicroJoules, StackDefinition target, List<StackDefinition> toIntegrate, @Nonnull ItemStack output, @Nullable NBTTagCompound recipeTag) {
+    public IntegrationRecipe(ResourceLocation name, long requiredMicroJoules, StackDefinition target, List<IngredientStack> toIntegrate, @Nonnull ItemStack output, @Nullable NBTTagCompound recipeTag) {
         this.name = name;
         this.requiredMicroJoules = requiredMicroJoules;
         this.target = target;
@@ -35,15 +35,15 @@ public final class IntegrationRecipe {
         this.recipeTag = recipeTag;
     }
 
-    public IntegrationRecipe(String name, long requiredMicroJoules, StackDefinition target, List<StackDefinition> toIntegrate, @Nonnull ItemStack output, @Nullable NBTTagCompound recipeTag) {
+    public IntegrationRecipe(String name, long requiredMicroJoules, StackDefinition target, List<IngredientStack> toIntegrate, @Nonnull ItemStack output, @Nullable NBTTagCompound recipeTag) {
         this(BuildCraftAPI.nameToResourceLocation(name), requiredMicroJoules, target, toIntegrate, output, recipeTag);
     }
 
-    public IntegrationRecipe(ResourceLocation name, long requiredMicroJoules, StackDefinition target, List<StackDefinition> toIntegrate, @Nonnull ItemStack output) {
+    public IntegrationRecipe(ResourceLocation name, long requiredMicroJoules, StackDefinition target, List<IngredientStack> toIntegrate, @Nonnull ItemStack output) {
         this(name, requiredMicroJoules, target, toIntegrate, output, null);
     }
 
-    public IntegrationRecipe(String name, long requiredMicroJoules, StackDefinition target, List<StackDefinition> toIntegrate, @Nonnull ItemStack output) {
+    public IntegrationRecipe(String name, long requiredMicroJoules, StackDefinition target, List<IngredientStack> toIntegrate, @Nonnull ItemStack output) {
         this(name, requiredMicroJoules, target, toIntegrate, output, null);
     }
 
