@@ -19,8 +19,6 @@ import net.minecraft.util.ResourceLocation;
 
 import buildcraft.api.core.BuildCraftAPI;
 
-import buildcraft.lib.misc.StackUtil;
-
 public class AssemblyRecipeBasic extends AssemblyRecipe {
     private final long requiredMicroJoules;
     private final ImmutableSet<IngredientStack> requiredStacks;
@@ -43,7 +41,7 @@ public class AssemblyRecipeBasic extends AssemblyRecipe {
 
     @Override
     public Set<ItemStack> getOutputs(NonNullList<ItemStack> inputs) {
-        if (requiredStacks.stream().allMatch((definition) -> StackUtil.contains(definition, inputs)))
+        if (requiredStacks.stream().allMatch((definition) -> inputs.stream().anyMatch((stack) -> !stack.isEmpty() && definition.ingredient.apply(stack) && stack.getCount() >= definition.count)))
             return output;
         return Collections.emptySet();
     }
