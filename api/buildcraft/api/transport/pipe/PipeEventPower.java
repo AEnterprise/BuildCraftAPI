@@ -4,8 +4,6 @@ import net.minecraft.util.EnumFacing;
 
 import buildcraft.api.mj.MjAPI;
 
-import buildcraft.transport.pipe.flow.PipeFlowPower;
-
 public abstract class PipeEventPower extends PipeEvent {
     public final IFlowPower flow;
 
@@ -89,25 +87,6 @@ public abstract class PipeEventPower extends PipeEvent {
 
         public void setFacing(EnumFacing facing) {
             this.facing = facing;
-        }
-    }
-
-    public static class PrePowerSend extends PipeEventPower {
-        private final PipeFlowPower.Section section;
-        private final EnumFacing from;
-
-        public PrePowerSend(IPipeHolder holder, IFlowPower flow, PipeFlowPower.Section section, EnumFacing from) {
-            super(holder, flow);
-            this.section = section;
-            this.from = from;
-        }
-
-        public PipeFlowPower.Section getSection() {
-            return section;
-        }
-
-        public EnumFacing getFrom() {
-            return from;
         }
     }
 }
